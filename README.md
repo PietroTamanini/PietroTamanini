@@ -26,6 +26,8 @@
 
 ## 🚀 Sobre Mim
 
+---
+
 ##📚 Estudando Atualmente
 Python com Flask para desenvolvimento web
 
@@ -34,6 +36,8 @@ MySQL Workbench para banco de dados
 HTML, CSS e JavaScript para front-end
 
 Desenvolvimento Backend e Mobile
+
+---
 
 ##🎯 Áreas de Interesse
 💻 Web Development
@@ -44,7 +48,10 @@ Desenvolvimento Backend e Mobile
 
 🎮 Game Development
 
+---
+
 ##🎵 Hobbies & Curiosidades
+
 🎸 Tocar guitarra nas horas vagas
 
 🚗 Encontros de carro - apaixonado por automóveis
@@ -54,3 +61,6 @@ Desenvolvimento Backend e Mobile
 🎧 Ouvir música no Spotify
 
 🔧 Tecnologia - do hardware ao software
+
+
+---
