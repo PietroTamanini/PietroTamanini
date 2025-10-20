@@ -28,29 +28,28 @@
 
 ---
 
-##📚 Estudando Atualmente
+## 📚 Estudando Atualmente
+
 Python com Flask para desenvolvimento web
 
 MySQL Workbench para banco de dados
 
 HTML, CSS e JavaScript para front-end
 
-Desenvolvimento Backend e Mobile
+Desenvolvimento Backend
 
 ---
 
-##🎯 Áreas de Interesse
+## 🎯 Áreas de Interesse
 💻 Web Development
 
 📱 Mobile Development
 
 🔙 Backend Development
 
-🎮 Game Development
-
 ---
 
-##🎵 Hobbies & Curiosidades
+## 🎵 Hobbies & Curiosidades
 
 🎸 Tocar guitarra nas horas vagas
 
@@ -61,6 +60,5 @@ Desenvolvimento Backend e Mobile
 🎧 Ouvir música no Spotify
 
 🔧 Tecnologia - do hardware ao software
-
 
 ---
