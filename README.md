@@ -1,4 +1,4 @@
-e<h1 align="center">
+<h1 align="center">
   👋 Olá, eu sou o Pietro Ramos Tamanini!
 </h1>
 <p align="center">
