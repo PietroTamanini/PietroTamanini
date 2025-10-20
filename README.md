@@ -1,4 +1,4 @@
-<h1 align="center">
+e<h1 align="center">
   👋 Olá, eu sou o Pietro Ramos Tamanini!
 </h1>
 <p align="center">
@@ -24,7 +24,7 @@
 
 ## 🚀 Sobre Mim
 
-Desenvolvedor em formação com foco em criar soluções completas, do backend ao frontend. Constantemente buscando aprender novas tecnologias e aprimorar minhas habilidades em desenvolvimento web.
+Desenvolvedor em formação com foco em criar soluções completas, do backend ao frontend. Constantemente buscando aprender novas tecnologias e aprimorar minhas habilidades.
 
 ---
 
@@ -58,6 +58,8 @@ Desenvolvedor em formação com foco em criar soluções completas, do backend a
 - 💻 Web Development
 - 📱 Mobile Development
 - 🔙 Backend Development
+- 🌐 Networks Development
+- 🔓 Hacking & Pentesting
 
 ---
 
@@ -65,9 +67,8 @@ Desenvolvedor em formação com foco em criar soluções completas, do backend a
 
 - 🎸 Tocar guitarra nas horas vagas
 - 🚗 Encontros de carro - apaixonado por automóveis
-- 🎮 Gaming - completo The Last of Us em todas as dificuldades!
+- 🎮 Gamas - Zerei The Last Of Us Part 1 em todas as dificuldades 
 - 🎧 Ouvir música no Spotify
-- 🔧 Tecnologia - do hardware ao software
 
 ---
 
