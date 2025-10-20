@@ -26,19 +26,31 @@
 
 ## 🚀 Sobre Mim
 
-```python
-class Desenvolvedor:
-    def __init__(self):
-        self.nome = "Pietro Ramos Tamanini"
-        self.idade = 16
-        self.area = "Estudante de ADS"
-        self.paixao = "Tecnologia do hardware ao software!"
-        self.estudando = ["Python Flask", "MySQL", "HTML/CSS/JS"]
-        self.hobbies = ["Jogos", "Encontros de carro", "Música", "Tocar guitarra"]
-        self.curiosidade = "Zerei The Last of Us Part 1 em TODAS as dificuldades! 🎮"
-    
-    def apresentar(self):
-        print("Vamos construir algo incrível juntos!")
+##📚 Estudando Atualmente
+Python com Flask para desenvolvimento web
 
-dev = Desenvolvedor()
-dev.apresentar()
+MySQL Workbench para banco de dados
+
+HTML, CSS e JavaScript para front-end
+
+Desenvolvimento Backend e Mobile
+
+##🎯 Áreas de Interesse
+💻 Web Development
+
+📱 Mobile Development
+
+🔙 Backend Development
+
+🎮 Game Development
+
+##🎵 Hobbies & Curiosidades
+🎸 Tocar guitarra nas horas vagas
+
+🚗 Encontros de carro - apaixonado por automóveis
+
+🎮 Gaming - completo The Last of Us em todas as dificuldades!
+
+🎧 Ouvir música no Spotify
+
+🔧 Tecnologia - do hardware ao software
