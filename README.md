@@ -69,7 +69,7 @@ Desenvolvedor em formação com foco em criar soluções completas, do backend a
 ## 🎵 Hobbies & Curiosidades
 
 - 🎸 Tocar guitarra nas horas vagas
-- 🚗 Encontros de carro - apaixonado por automóveis
+- 🚗 Encontros de carro
 - 🎮 Games - Zerei The Last Of Us Part 1 em todas as dificuldades 
 - 🎧 Ouvir música no Spotify
 
