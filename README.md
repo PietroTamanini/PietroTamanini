@@ -1,12 +1,10 @@
 <h1 align="center">
   👋 Olá, eu sou o Pietro Ramos Tamanini!
 </h1>
-
 <p align="center">
   <b>🎓 Estudante de Análise e Desenvolvimento de Sistemas</b><br>
   <i>16 anos • Apaixonado por tecnologia do hardware ao software</i>
 </p>
-
 <p align="center">
   <a href="https://www.instagram.com/pietro.tamanini/">
     <img src="https://img.shields.io/badge/Instagram-E4405F?style=for-the-badge&logo=instagram&logoColor=white" alt="Instagram">
@@ -26,39 +24,53 @@
 
 ## 🚀 Sobre Mim
 
+Desenvolvedor em formação com foco em criar soluções completas, do backend ao frontend. Constantemente buscando aprender novas tecnologias e aprimorar minhas habilidades em desenvolvimento web.
+
 ---
 
 ## 📚 Estudando Atualmente
 
-https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white https://img.shields.io/badge/Flask-000000?style=for-the-badge&logo=flask&logoColor=white Python com Flask para desenvolvimento web
+### Linguagens
+<p>
+  <img src="https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white" alt="Python">
+  <img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black" alt="JavaScript">
+  <img src="https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white" alt="HTML5">
+  <img src="https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white" alt="CSS3">
+  <img src="https://img.shields.io/badge/SQL-4479A1?style=for-the-badge&logo=mysql&logoColor=white" alt="SQL">
+</p>
 
-https://img.shields.io/badge/SQL-4479A1?style=for-the-badge&logo=mysql&logoColor=white MySQL Workbench para banco de dados
+### Frameworks
+<p>
+  <img src="https://img.shields.io/badge/Flask-000000?style=for-the-badge&logo=flask&logoColor=white" alt="Flask">
+</p>
 
-https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black HTML, CSS e JavaScript para front-end
-
-Desenvolvimento Backend
+### Ferramentas
+<p>
+  <img src="https://img.shields.io/badge/Git-F05032?style=for-the-badge&logo=git&logoColor=white" alt="Git">
+  <img src="https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white" alt="GitHub">
+  <img src="https://img.shields.io/badge/MySQL_Workbench-4479A1?style=for-the-badge&logo=mysql&logoColor=white" alt="MySQL Workbench">
+</p>
 
 ---
 
 ## 🎯 Áreas de Interesse
-💻 Web Development
 
-📱 Mobile Development
-
-🔙 Backend Development
+- 💻 Web Development
+- 📱 Mobile Development
+- 🔙 Backend Development
 
 ---
 
 ## 🎵 Hobbies & Curiosidades
 
-🎸 Tocar guitarra nas horas vagas
-
-🚗 Encontros de carro - apaixonado por automóveis
-
-🎮 Gaming - completo The Last of Us em todas as dificuldades!
-
-🎧 Ouvir música no Spotify
-
-🔧 Tecnologia - do hardware ao software
+- 🎸 Tocar guitarra nas horas vagas
+- 🚗 Encontros de carro - apaixonado por automóveis
+- 🎮 Gaming - completo The Last of Us em todas as dificuldades!
+- 🎧 Ouvir música no Spotify
+- 🔧 Tecnologia - do hardware ao software
 
 ---
+
+<p align="center">
+  <i>💡 Sempre aberto a novos desafios e oportunidades de aprendizado!</i>
+</p>
