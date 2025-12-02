@@ -18,8 +18,8 @@
   <a href="https://open.spotify.com/user/htt3ji5ept0xi37si6f5kbnmk">
     <img src="https://img.shields.io/badge/Spotify-1ED760?style=for-the-badge&logo=spotify&logoColor=white" alt="Spotify">
   </a>
-  <a href="https://steamcommunity.com/id/soks999/">
-    <img src="[https://img.shields.io/badge/Steam-000000?style=for-the-badge&logo=steam&logoColor=white](https://steamcommunity.com/id/999soks999)" alt="Steam">
+  <a href="https://steamcommunity.com/id/999soks999/">
+    <img src="https://img.shields.io/badge/Steam-000000?style=for-the-badge&logo=steam&logoColor=white" alt="Steam">
   </a>
 </p>
 
