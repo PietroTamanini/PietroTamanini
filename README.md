@@ -3,7 +3,7 @@
 </h1>
 <p align="center">
   <b>🎓 Estudante de Análise e Desenvolvimento de Sistemas</b><br>
-  <i>16 anos • Apaixonado por tecnologia do hardware ao software</i>
+  <i>16 anos • Apaixonado por tecnologia, do hardware ao software</i>
 </p>
 <p align="center">
   <a href="https://www.instagram.com/pietro.tamanini/">
@@ -66,7 +66,7 @@ Desenvolvedor em formação com foco em criar soluções completas, do backend a
 
 ---
 
-## 🎵 Hobbies & Curiosidades
+## 🎵 Hobbies
 
 - 🚗 Encontros de carro
 - 🎧 Ouvir música no Spotify
