@@ -1,0 +1,750 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Portfólio de Pietro Tamanini - Desenvolvedor Full Stack">
+    <title>Pietro Tamanini | Desenvolvedor Full Stack</title>
+    
+    <link rel="shortcut icon" href="docs/img/favicon.ico" type="image/x-icon">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Outfit:wght@500;700;800&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        /* =========================================
+           1. VARIÁVEIS & RESET
+           ========================================= */
+        :root {
+            /* TEMA ESCURO */
+            --bg-body: #050505;
+            --bg-surface: #0a0a0a;
+            --bg-card: #111111;
+            --text-main: #ffffff;
+            --text-muted: #a1a1aa;
+            --border: rgba(255, 255, 255, 0.08);
+            
+            /* DESTAQUE */
+            --primary: #00ff9d;       
+            --primary-rgb: 0, 255, 157;
+            --btn-text: #000000;
+            
+            /* ANIMAÇÕES */
+            --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+            --transition: all 0.3s var(--ease-out-expo);
+            
+            --container: 1200px;
+            --radius: 16px;
+        }
+
+        [data-theme="light"] {
+            --bg-body: #f8f9fa;
+            --bg-surface: #ffffff;
+            --bg-card: #ffffff;
+            --text-main: #0f172a;
+            --text-muted: #64748b;
+            --border: rgba(0, 0, 0, 0.1);
+            --primary: #10b981;
+            --primary-rgb: 16, 185, 129;
+            --btn-text: #ffffff;
+        }
+
+        /* SCROLLBAR VERDE */
+        ::-webkit-scrollbar { width: 10px; }
+        ::-webkit-scrollbar-track { background: var(--bg-body); }
+        ::-webkit-scrollbar-thumb { 
+            background: var(--primary); 
+            border-radius: 5px;
+            border: 2px solid var(--bg-body); 
+        }
+        ::-webkit-scrollbar-thumb:hover { background: var(--primary); filter: brightness(1.2); }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        html, body {
+            overflow-x: hidden; 
+            width: 100%;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-body);
+            color: var(--text-main);
+            transition: background-color 0.5s ease, color 0.5s ease;
+            line-height: 1.7;
+        }
+
+        /* Ruído de fundo */
+        body::after {
+            content: ""; position: fixed; inset: 0; pointer-events: none; z-index: 9999;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.03'/%3E%3C/svg%3E");
+            opacity: 0.4;
+        }
+
+        h1, h2, h3, h4 { font-family: 'Outfit', sans-serif; letter-spacing: -0.02em; }
+        a { text-decoration: none; color: inherit; }
+        button { cursor: pointer; border: none; font-family: inherit; }
+        img { display: block; max-width: 100%; object-fit: cover; }
+        ul { list-style: none; }
+
+        .container { max-width: var(--container); margin: 0 auto; padding: 0 1.5rem; }
+        .text-primary { color: var(--primary); }
+
+        /* =========================================
+           2. ANIMAÇÕES
+           ========================================= */
+        .animate-up { opacity: 0; animation: fadeInUp 1.2s var(--ease-out-expo) forwards; }
+        .animate-scale { opacity: 0; animation: scaleIn 1.2s var(--ease-out-expo) forwards; }
+        
+        .reveal { 
+            opacity: 0; transform: translateY(40px) scale(0.98); filter: blur(10px); 
+            transition: all 1s var(--ease-out-expo); 
+        }
+        .reveal.active { opacity: 1; transform: translateY(0) scale(1); filter: blur(0); }
+        
+        @keyframes fadeInUp { from { opacity: 0; transform: translateY(40px); filter: blur(10px); } to { opacity: 1; transform: translateY(0); filter: blur(0); } }
+        @keyframes scaleIn { from { opacity: 0; transform: scale(0.9); filter: blur(5px); } to { opacity: 1; transform: scale(1); filter: blur(0); } }
+        
+        .delay-100 { animation-delay: 0.1s; } 
+        .delay-200 { animation-delay: 0.2s; } 
+        .delay-300 { animation-delay: 0.3s; }
+        .delay-400 { animation-delay: 0.4s; }
+
+        /* =========================================
+           3. NAVBAR
+           ========================================= */
+        .navbar {
+            position: fixed; top: 0; left: 0; width: 100%; z-index: 1000;
+            padding: 1.5rem 0; background: rgba(var(--bg-body), 0.85);
+            backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border);
+            transition: padding 0.3s;
+        }
+        .nav-inner { display: flex; justify-content: space-between; align-items: center; }
+        .logo { font-size: 1.5rem; font-weight: 800; z-index: 1002; }
+        
+        .nav-right { display: flex; align-items: center; gap: 2.5rem; }
+        .nav-links-desktop { display: flex; gap: 2.5rem; }
+        
+        .nav-link { 
+            font-weight: 500; color: var(--text-muted); font-size: 0.95rem; 
+            transition: var(--transition); position: relative;
+        }
+        .nav-link:hover { color: var(--text-main); }
+        .nav-link::after {
+            content: ''; position: absolute; bottom: -5px; left: 0; width: 0; height: 2px;
+            background: var(--primary); transition: width 0.3s ease;
+        }
+        .nav-link:hover::after { width: 100%; }
+
+        .theme-toggle {
+            background: transparent; border: 1px solid var(--border);
+            width: 44px; height: 44px; border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            color: var(--text-main); font-size: 1.2rem; transition: var(--transition);
+        }
+        .theme-toggle:hover { border-color: var(--primary); color: var(--primary); transform: rotate(180deg); }
+
+        .hamburger { 
+            display: none; font-size: 1.5rem; color: var(--text-main); background: none; z-index: 1002;
+        }
+
+        /* =========================================
+           4. HERO SECTION
+           ========================================= */
+        .hero { 
+            padding-top: 180px; padding-bottom: 100px; 
+            display: flex; align-items: center; justify-content: space-between; 
+            min-height: 90vh; 
+        }
+        .hero-content { max-width: 600px; }
+        
+        .badge { 
+            display: inline-block; padding: 0.6rem 1.4rem; 
+            background: rgba(var(--primary-rgb), 0.05); color: var(--primary); 
+            border-radius: 50px; font-weight: 600; font-size: 0.85rem; 
+            margin-bottom: 2rem; border: 1px solid rgba(var(--primary-rgb), 0.2); 
+        }
+        
+        .hero h1 { 
+            font-size: clamp(3rem, 5vw, 4.5rem); 
+            line-height: 1.05; margin-bottom: 1.5rem; font-weight: 800; 
+        }
+        
+        .hero p { font-size: 1.15rem; color: var(--text-muted); margin-bottom: 2.5rem; }
+        .hero-buttons { display: flex; gap: 1rem; flex-wrap: wrap; }
+        
+        .btn { 
+            padding: 1rem 2rem; border-radius: 12px; font-weight: 600; 
+            display: inline-flex; align-items: center; gap: 10px; transition: var(--transition); 
+            text-decoration: none;
+        }
+        .btn-primary { 
+            background: var(--primary); color: var(--btn-text); 
+            box-shadow: 0 0 20px rgba(var(--primary-rgb), 0.2); 
+        }
+        .btn-primary:hover { transform: translateY(-3px); box-shadow: 0 0 40px rgba(var(--primary-rgb), 0.4); }
+        .btn-outline { border: 1px solid var(--border); color: var(--text-main); }
+        .btn-outline:hover { border-color: var(--primary); color: var(--primary); transform: translateY(-3px); }
+
+        .hero-img-wrapper { 
+            position: relative; width: 450px; height: 450px; 
+            display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+        }
+        .pulse-circle { position: absolute; width: 100%; height: 100%; border-radius: 50%; border: 1px solid var(--primary); opacity: 0.2; animation: pulse 3s infinite; }
+        .pulse-circle:nth-child(2) { width: 120%; height: 120%; animation-delay: 0.5s; opacity: 0.1; }
+        @keyframes pulse { 0% { transform: scale(0.95); opacity: 0.1; } 50% { transform: scale(1); opacity: 0.2; } 100% { transform: scale(0.95); opacity: 0.1; } }
+        
+        .hero-img { 
+            width: 400px; height: 400px; border-radius: 50%; overflow: hidden; 
+            border: 4px solid var(--bg-surface); z-index: 2; 
+            background: var(--bg-surface); display: flex; align-items: center; justify-content: center; 
+        }
+
+        /* =========================================
+           5. MENU MOBILE (OVERLAY)
+           ========================================= */
+        .mobile-overlay {
+            position: fixed; inset: 0; background-color: #000000; 
+            z-index: 9999; display: flex; flex-direction: column; 
+            justify-content: center; align-items: center;
+            opacity: 0; pointer-events: none; transition: opacity 0.4s ease;
+        }
+        .mobile-overlay.active { opacity: 1; pointer-events: all; }
+        .mobile-overlay::before {
+            content: ''; position: absolute; inset: 0;
+            background: radial-gradient(circle at center, rgba(var(--primary-rgb), 0.1), transparent 70%);
+            pointer-events: none;
+        }
+
+        .mobile-close-btn {
+            position: absolute; top: 2rem; right: 2rem;
+            font-size: 2.5rem; color: var(--text-main); background: none; border: none; cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+        .mobile-close-btn:hover { color: var(--primary); transform: rotate(90deg); }
+
+        .mobile-links { list-style: none; text-align: center; display: flex; flex-direction: column; gap: 3rem; z-index: 2; }
+        .mobile-link {
+            font-family: 'Outfit', sans-serif; font-size: 3rem; 
+            font-weight: 700; color: var(--text-muted); text-transform: uppercase; letter-spacing: 2px;
+            transition: all 0.3s ease; position: relative; display: inline-block;
+        }
+        .mobile-link:hover, .mobile-link.active {
+            color: var(--primary); transform: scale(1.1); text-shadow: 0 0 20px rgba(var(--primary-rgb), 0.5);
+        }
+
+        /* =========================================
+           6. SEÇÕES GERAIS
+           ========================================= */
+        .section { padding: 6rem 0; border-top: 1px solid var(--border); }
+        .section-header { margin-bottom: 3rem; }
+        .section-title { font-size: clamp(2.2rem, 4vw, 3rem); margin-bottom: 0.5rem; }
+        
+        .click-hint {
+            position: absolute; top: 1.5rem; right: 1.5rem;
+            background: rgba(var(--primary-rgb), 0.1); color: var(--primary);
+            padding: 0.4rem 0.8rem; border-radius: 8px; font-size: 0.75rem; font-weight: 600;
+            opacity: 0; transform: translateY(10px); transition: var(--transition); z-index: 5;
+        }
+        .project-card:hover .click-hint { opacity: 1; transform: translateY(0); }
+
+        .about-grid { display: grid; grid-template-columns: 1.5fr 1fr; gap: 4rem; align-items: center; }
+        .about-text p { margin-bottom: 1.5rem; font-size: 1.1rem; color: var(--text-muted); }
+
+        .stat-card { background: var(--bg-surface); padding: 2rem; border-radius: var(--radius); border: 1px solid var(--border); text-align: center; margin-bottom: 1rem; }
+        .stat-card h3 { font-size: 2.5rem; color: var(--primary); }
+
+        .projects-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; }
+        
+        .project-card {
+            background: var(--bg-card); border-radius: var(--radius); overflow: hidden;
+            border: 1px solid var(--border); cursor: pointer; transition: transform 0.3s;
+        }
+        .project-card:hover { transform: translateY(-5px); border-color: var(--primary); }
+        .card-visual { position: relative; height: 220px; background: var(--bg-surface); display: flex; align-items: center; justify-content: center; overflow: hidden;}
+        .card-visual img { width: 100%; height: 100%; object-fit: cover; opacity: 0.8; transition: 0.5s; }
+        .project-card:hover .card-visual img { opacity: 1; transform: scale(1.05); }
+        .card-info { padding: 1.5rem; }
+
+        .contact-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem; }
+        .contact-item { 
+            background: var(--bg-surface); padding: 2rem; border-radius: var(--radius); 
+            border: 1px solid var(--border); text-align: center; display: flex; flex-direction: column; align-items: center; gap: 1rem;
+        }
+        .contact-item:hover { border-color: var(--primary); transform: translateY(-5px); }
+        .contact-icon { font-size: 2rem; color: var(--text-muted); }
+
+        /* =========================================
+           7. MODAL PREMIUM & CREDENCIAIS
+           ========================================= */
+        .modal-overlay {
+            position: fixed; inset: 0; background: rgba(0,0,0,0.95); z-index: 10000;
+            display: none; align-items: center; justify-content: center; padding: 1rem;
+            backdrop-filter: blur(8px);
+        }
+        .modal-overlay.active { display: flex; }
+        
+        .modal-box {
+            background: var(--bg-card); width: 100%; max-width: 1100px; max-height: 90vh;
+            border-radius: var(--radius); border: 1px solid var(--border);
+            display: flex; flex-direction: column; overflow: hidden; position: relative;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+        }
+        
+        .close-btn {
+            position: absolute; top: 1.5rem; right: 1.5rem; z-index: 10;
+            font-size: 1.2rem; color: var(--text-main); background: rgba(0,0,0,0.5);
+            width: 40px; height: 40px; border-radius: 50%; 
+            display: flex; align-items: center; justify-content: center;
+            border: 1px solid var(--border); cursor: pointer; transition: 0.3s;
+        }
+        .close-btn:hover { background: var(--primary); color: #000; transform: rotate(90deg); }
+
+        .modal-content-grid { display: grid; grid-template-columns: 1.5fr 1fr; height: 100%; overflow: hidden; }
+        
+        .modal-left { 
+            background: #000; display: flex; flex-direction: column; 
+            position: relative; height: 100%;
+        }
+        .modal-media { 
+            width: 100%; height: 50%; object-fit: cover; display: block;
+        }
+        
+        .modal-right { padding: 3rem; overflow-y: auto; background: var(--bg-surface); display: flex; flex-direction: column; }
+        .modal-title { font-size: 2.2rem; color: var(--primary); margin-bottom: 0.5rem; line-height: 1.1; }
+        .modal-desc { 
+            font-size: 1.05rem; color: var(--text-muted); line-height: 1.7; margin-bottom: 2rem; 
+            border-left: 3px solid var(--primary); padding-left: 1rem;
+        }
+        .modal-section-label { font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1.5px; color: var(--text-main); font-weight: 700; margin-bottom: 1rem; display: flex; align-items: center; gap: 8px; }
+        .modal-section-label i { color: var(--primary); }
+        
+        .modal-features-list { list-style: none; margin-bottom: 2rem; }
+        .modal-feature-item { display: flex; align-items: flex-start; gap: 12px; margin-bottom: 0.8rem; color: var(--text-muted); font-size: 0.95rem; }
+        .modal-feature-item i { color: var(--primary); margin-top: 4px; flex-shrink: 0; }
+        
+        .modal-tech-tags { display: flex; flex-wrap: wrap; gap: 0.8rem; margin-bottom: 2rem; }
+        .tech-badge {
+            background: rgba(var(--primary-rgb), 0.1); color: var(--primary); border: 1px solid rgba(var(--primary-rgb), 0.2);
+            padding: 0.4rem 0.8rem; border-radius: 6px; font-size: 0.85rem; font-weight: 600;
+        }
+
+        /* Box de Credenciais */
+        .credentials-box {
+            background: rgba(var(--primary-rgb), 0.05);
+            border: 1px dashed var(--border);
+            border-radius: 8px;
+            padding: 1.2rem;
+            margin-bottom: 2rem;
+        }
+        .credentials-header {
+            font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px; font-weight: 700;
+            color: var(--primary); margin-bottom: 0.5rem; display: flex; align-items: center; gap: 8px;
+        }
+        .credential-row {
+            display: flex; justify-content: space-between; font-family: monospace; font-size: 0.95rem;
+            color: var(--text-muted); border-bottom: 1px solid rgba(255,255,255,0.05); padding: 0.3rem 0;
+        }
+        .credential-row:last-child { border-bottom: none; }
+        .credential-row span { color: var(--text-main); }
+
+        .modal-footer { margin-top: auto; display: flex; gap: 1rem; padding-top: 1rem; border-top: 1px solid var(--border); flex-wrap: wrap; }
+        .modal-btn { 
+            flex: 1; padding: 1rem; text-align: center; border-radius: 8px; 
+            font-weight: 600; text-decoration: none; border: 1px solid var(--border); 
+            color: var(--text-main); display: flex; align-items: center; justify-content: center; gap: 8px; transition: 0.2s;
+            min-width: 140px;
+        }
+        .modal-btn.primary { background: var(--primary); color: var(--btn-text); border: none; }
+        
+        /* Botão Admin Específico */
+        .modal-btn.admin { 
+            border-color: var(--primary); color: var(--primary); background: transparent; 
+        }
+        .modal-btn.admin:hover { background: var(--primary); color: var(--btn-text); }
+        
+        .modal-btn:hover { transform: translateY(-2px); filter: brightness(1.1); }
+
+        /* =========================================
+           8. RESPONSIVIDADE AVANÇADA
+           ========================================= */
+        @media (max-width: 1024px) {
+            .hero-img-wrapper { width: 380px; height: 380px; }
+            .hero-img { width: 340px; height: 340px; }
+            .about-grid { grid-template-columns: 1fr; gap: 3rem; }
+        }
+
+        @media (max-width: 900px) {
+            .nav-links-desktop { display: none; } 
+            .hamburger { display: block; } 
+            .navbar { padding: 1rem 0; }
+
+            .hero { flex-direction: column-reverse; text-align: center; padding-top: 130px; padding-bottom: 60px; }
+            .hero-content { width: 100%; }
+            .hero-img-wrapper { width: 300px; height: 300px; margin-bottom: 2rem; }
+            .hero-img { width: 280px; height: 280px; }
+            .hero-buttons { justify-content: center; width: 100%; }
+            .btn { width: 100%; justify-content: center; } 
+
+            .section { padding: 4rem 0; } 
+            
+            .modal-content-grid { grid-template-columns: 1fr; grid-template-rows: auto 1fr; }
+            .modal-left { height: 250px; border-bottom: 1px solid var(--border); }
+            .modal-right { padding: 1.5rem; }
+            .modal-footer { flex-direction: column; }
+            .modal-title { font-size: 1.8rem; }
+        }
+
+        @media (max-width: 480px) {
+            .mobile-link { font-size: 2.2rem; }
+            .hero-img-wrapper { width: 260px; height: 260px; }
+            .hero-img { width: 240px; height: 240px; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="container nav-inner">
+            <a href="#" class="logo">Pietro<span class="text-primary">.</span></a>
+            
+            <div class="nav-right">
+                <ul class="nav-links-desktop">
+                    <li><a href="#about" class="nav-link">Sobre</a></li>
+                    <li><a href="#projects" class="nav-link">Projetos</a></li>
+                    <li><a href="#contact" class="nav-link">Contato</a></li>
+                </ul>
+                
+                <button class="theme-toggle" id="themeBtn" aria-label="Mudar Tema">
+                    <i class="fas fa-moon"></i>
+                </button>
+
+                <button class="hamburger" id="hamburgerBtn" aria-label="Menu Mobile">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <div class="mobile-overlay" id="mobileOverlay">
+        <button class="mobile-close-btn" id="mobileCloseBtn">
+            <i class="fas fa-times"></i>
+        </button>
+        <ul class="mobile-links">
+            <li><a href="#about" class="mobile-link">Sobre</a></li>
+            <li><a href="#projects" class="mobile-link">Projetos</a></li>
+            <li><a href="#contact" class="mobile-link">Contato</a></li>
+        </ul>
+    </div>
+
+    <section class="hero container">
+        <div class="hero-content">
+            <span class="badge animate-up delay-100">Análise e Desenvolvimento de Sistemas</span>
+            <h1 class="animate-up delay-200">
+                Transformando ideias em <span class="text-primary">realidade digital.</span>
+            </h1>
+            <p class="animate-up delay-300">
+                Olá, sou Pietro Tamanini. Desenvolvedor Full Stack especializado em Python e Web. Foco em performance, design limpo e experiência do usuário.
+            </p>
+            <div class="hero-buttons animate-up delay-400">
+                <a href="./docs/pdf/desenvolvedor full stack.pdf" download class="btn btn-primary">
+                    Baixar CV <i class="fas fa-download"></i>
+                </a>
+                <a href="#contact" class="btn btn-outline">
+                    Entrar em Contato
+                </a>
+            </div>
+        </div>
+        <div class="hero-img-wrapper animate-scale delay-300">
+            <div class="pulse-circle"></div>
+            <div class="pulse-circle"></div>
+            <div class="hero-img">
+                <img src="./docs/img/pietro.jpg" alt="Pietro Tamanini" 
+                     onerror="this.style.display='none'; this.parentElement.innerHTML='<i class=\'fas fa-user\' style=\'font-size: 5rem; color: var(--text-muted);\'></i>'">
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="section container">
+        <div class="section-header reveal">
+            <h2 class="section-title">Sobre <span>Mim</span></h2>
+            <p class="section-subtitle">Minha trajetória e especialidades.</p>
+        </div>
+        <div class="about-grid">
+            <div class="about-text reveal">
+                <p>Sou estudante de <strong>Análise e desenvolvimento de Sistemas</strong> com foco em desenvolvimento <strong>backend</strong> e construção de aplicações web completas.</p>
+                <p>Trabalho principalmente com <strong>Python</strong>, utilizando <strong>Django</strong> e <strong>Flask</strong> para desenvolver APIs e sistemas web com arquitetura modular, CRUD estruturado, autenticação e autorização.</p>
+                <p>No frontend, implemento interfaces responsivas integradas ao backend, priorizando clareza e usabilidade.</p>
+                <p>Busco evoluir continuamente em boas práticas de engenharia, segurança de aplicações, organização de código e versionamento com Git.</p>
+            </div>
+            <div class="stats-box reveal">
+                <div class="stat-card"><h3>3º</h3><p>Semestre</p></div>
+                <div class="stat-card"><h3>Python</h3><p>Especialista</p></div>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects" class="section container">
+        <div class="section-header reveal">
+            <h2 class="section-title">Meus <span>Projetos</span></h2>
+            <p class="section-subtitle">Clique nos cards para ver detalhes.</p>
+        </div>
+        <div class="projects-grid">
+            <article class="project-card reveal" data-id="1">
+                <div class="click-hint">Ver Detalhes</div>
+                <div class="card-visual">
+                    <img src="./docs/img/avell1.png" alt="Sistema Avell" onerror="this.style.display='none'; this.parentElement.innerHTML='<i class=\'fas fa-laptop-code\' style=\'font-size: 4rem; color: var(--text-muted);\'></i>'">
+                </div>
+                <div class="card-info">
+                    <h3 class="card-title">Sistema Avell</h3>
+                    <p class="card-text">Gestão Inteligente de Ativos e Comodatos.</p>
+                </div>
+            </article>
+            <article class="project-card reveal" data-id="2">
+                <div class="click-hint">Ver Detalhes</div>
+                <div class="card-visual">
+                    <img src="./docs/img/gamechip1.png" alt="GameChip" onerror="this.style.display='none'; this.parentElement.innerHTML='<i class=\'fas fa-gamepad\' style=\'font-size: 4rem; color: var(--text-muted);\'></i>'">
+                </div>
+                <div class="card-info">
+                    <h3 class="card-title">GameChip</h3>
+                    <p class="card-text">Plataforma de Gestão e Loja de Jogos.</p>
+                </div>
+            </article>
+        </div>
+    </section>
+
+    <section id="contact" class="section container">
+        <div class="section-header reveal">
+            <h2 class="section-title">Entre em <span>Contato</span></h2>
+        </div>
+        <div class="contact-grid reveal">
+            <a href="https://linkedin.com/in/pietrotamanini" target="_blank" class="contact-item">
+                <div class="contact-icon"><i class="fab fa-linkedin-in"></i></div>
+                <h4>LinkedIn</h4>
+            </a>
+            <a href="mailto:pietro@tamanini.dev.br" class="contact-item">
+                <div class="contact-icon"><i class="fas fa-envelope"></i></div>
+                <h4>E-mail</h4>
+            </a>
+            <a href="https://github.com/PietroTamanini" target="_blank" class="contact-item">
+                <div class="contact-icon"><i class="fab fa-github"></i></div>
+                <h4>GitHub</h4>
+            </a>
+            <a href="https://wa.me/5547984194811?text=Olá Pietro, tudo bem? Vi seu portfólio e gostaria de conversar!" target="_blank" class="contact-item">
+                <div class="contact-icon"><i class="fab fa-whatsapp"></i></div>
+                <h4>WhatsApp</h4>
+            </a>
+        </div>
+    </section>
+
+    <div class="modal-overlay" id="projectModal">
+        <div class="modal-box">
+            <button class="close-btn" id="closeModal">&times;</button>
+            <div class="modal-content-grid">
+                
+                <div class="modal-left" id="modalLeftContent"></div>
+
+                <div class="modal-right">
+                    <h2 id="modalTitle" class="modal-title">Título</h2>
+                    <div id="modalDesc" class="modal-desc">Descrição...</div>
+
+                    <div class="modal-section-label">
+                        <i class="fas fa-check-circle"></i> Funcionalidades
+                    </div>
+                    <ul id="modalFeatures" class="modal-features-list"></ul>
+
+                    <div class="modal-section-label">
+                        <i class="fas fa-code"></i> Tecnologias
+                    </div>
+                    <div id="modalTechs" class="modal-tech-tags"></div>
+
+                    <div id="modalCredentials" class="credentials-box" style="display: none;">
+                        <div class="credentials-header">
+                            <i class="fas fa-key"></i> Credenciais de Acesso
+                        </div>
+                        <div class="credential-row">
+                            Usuário: <span id="credUser">admin</span>
+                        </div>
+                        <div class="credential-row">
+                            Senha: <span id="credPass">admin</span>
+                        </div>
+                    </div>
+
+                    <div class="modal-footer">
+                        <a href="#" id="btnLive" target="_blank" class="modal-btn primary">
+                            Acessar Projeto <i class="fas fa-external-link-alt"></i>
+                        </a>
+                        <a href="#" id="btnRepo" target="_blank" class="modal-btn">
+                            Repositório <i class="fab fa-github"></i>
+                        </a>
+                        <a href="#" id="btnAdmin" target="_blank" class="modal-btn admin" style="display: none;">
+                            Admin <i class="fas fa-user-shield"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // DADOS DOS PROJETOS (ATUALIZADOS COM CREDENCIAIS E ADMIN URL)
+        const projectsData = {
+            1: {
+                title: "Sistema Avell: Gestão de Ativos",
+                description: "<p>Solução web completa construída com <strong>Python/Flask</strong> para centralizar o controle de notebooks e equipamentos da Avell. O sistema gerencia todo o ciclo de vida de empréstimos e comodatos, garantindo rastreabilidade, segurança e auditoria dos ativos de TI.</p>",
+                features: [
+                    "Dashboard Gerencial com estatísticas em tempo real",
+                    "Controle rigoroso de Empréstimos (curto prazo) e Comodatos",
+                    "Validação de dados (CPF/CNPJ) e Hash SHA256",
+                    "Relatórios de auditoria e histórico de movimentação"
+                ],
+                technologies: ["Python 3", "Flask", "SQLAlchemy", "SQLite", "HTML5 & CSS3"],
+                images: ["./docs/img/avell1.png", "./docs/img/avell2.png"],
+                liveUrl: "https://pietro.tamanini.dev.br/avell",
+                repoUrl: "https://github.com/PietroTamanini/AVELL",
+                credentials: { user: "admin@admin", pass: "admin" } 
+            },
+            2: {
+                title: "GameChip: Plataforma de Jogos",
+                description: "<p>Sistema web robusto para gerenciamento de biblioteca e loja virtual de jogos. Permite administração completa de catálogos, usuários e transações, com um painel de controle intuitivo para gestão de conteúdo e vendas.</p>",
+                features: [
+                    "Catálogo dinâmico de jogos com detalhes e preços",
+                    "Sistema de Usuários com níveis de permissão (Admin/Comum)",
+                    "Módulo de Avaliações e Comentários",
+                    "Gestão de Transações e vendas"
+                ],
+                technologies: ["Python 3", "Flask", "MySQL", "Git & Versionamento"],
+                images: ["./docs/img/gamechip1.png", "./docs/img/gamechip2.png"], 
+                liveUrl: "https://pietro.tamanini.dev.br/gamechip/",
+                repoUrl: "https://github.com/TeamGHCP/GameChip",
+                credentials: { user: "admin@ghcp.com", pass: "admin123" },
+                adminUrl: "https://pietro.tamanini.dev.br/gamechip/admin/login" 
+            }
+        };
+
+        // LÓGICA DO MENU MOBILE
+        const hamburgerBtn = document.getElementById('hamburgerBtn');
+        const mobileOverlay = document.getElementById('mobileOverlay');
+        const mobileCloseBtn = document.getElementById('mobileCloseBtn');
+        const mobileLinks = document.querySelectorAll('.mobile-link');
+
+        hamburgerBtn.addEventListener('click', () => {
+            mobileOverlay.classList.add('active');
+            document.body.style.overflow = 'hidden'; 
+        });
+
+        mobileCloseBtn.addEventListener('click', () => {
+            mobileOverlay.classList.remove('active');
+            document.body.style.overflow = 'auto'; 
+        });
+
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileOverlay.classList.remove('active');
+                document.body.style.overflow = 'auto';
+            });
+        });
+
+        // TEMA
+        const themeBtn = document.getElementById('themeBtn');
+        const html = document.documentElement;
+        if(localStorage.getItem('theme') === 'light') {
+            html.setAttribute('data-theme', 'light');
+            themeBtn.querySelector('i').classList.replace('fa-moon', 'fa-sun');
+        }
+        themeBtn.addEventListener('click', () => {
+            if(html.getAttribute('data-theme') === 'light') {
+                html.removeAttribute('data-theme');
+                themeBtn.querySelector('i').classList.replace('fa-sun', 'fa-moon');
+                localStorage.setItem('theme', 'dark');
+            } else {
+                html.setAttribute('data-theme', 'light');
+                themeBtn.querySelector('i').classList.replace('fa-moon', 'fa-sun');
+                localStorage.setItem('theme', 'light');
+            }
+        });
+
+        // ANIMAÇÕES
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if(entry.isIntersecting) entry.target.classList.add('active');
+            });
+        }, { threshold: 0.1 });
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+        // MODAL
+        const modal = document.getElementById('projectModal');
+        const closeModal = document.getElementById('closeModal');
+        const mTitle = document.getElementById('modalTitle');
+        const mDesc = document.getElementById('modalDesc');
+        const mList = document.getElementById('modalFeatures');
+        const mTechs = document.getElementById('modalTechs');
+        const mLeftContent = document.getElementById('modalLeftContent');
+        const btnLive = document.getElementById('btnLive');
+        const btnRepo = document.getElementById('btnRepo');
+        
+        // Elementos novos (Credenciais e Botão Admin)
+        const boxCred = document.getElementById('modalCredentials');
+        const txtUser = document.getElementById('credUser');
+        const txtPass = document.getElementById('credPass');
+        const btnAdmin = document.getElementById('btnAdmin');
+
+        document.querySelectorAll('.project-card').forEach(card => {
+            card.addEventListener('click', () => {
+                const data = projectsData[card.getAttribute('data-id')];
+                if(data) {
+                    mTitle.innerText = data.title;
+                    mDesc.innerHTML = data.description;
+                    mList.innerHTML = data.features.map(f => `<li class="modal-feature-item"><i class="fas fa-check"></i> ${f}</li>`).join('');
+                    mTechs.innerHTML = data.technologies.map(t => `<span class="tech-badge">${t}</span>`).join('');
+                    btnLive.href = data.liveUrl;
+                    btnRepo.href = data.repoUrl;
+                    
+                    // LIMPA E CRIA AS IMAGENS
+                    mLeftContent.innerHTML = '';
+                    if (data.images && data.images.length > 0) {
+                        data.images.forEach(imgSrc => {
+                            const img = document.createElement('img');
+                            img.src = imgSrc;
+                            img.className = 'modal-media';
+                            mLeftContent.appendChild(img);
+                        });
+                    }
+
+                    // LÓGICA DE CREDENCIAIS
+                    if (data.credentials) {
+                        txtUser.innerText = data.credentials.user;
+                        txtPass.innerText = data.credentials.pass;
+                        boxCred.style.display = 'block';
+                    } else {
+                        boxCred.style.display = 'none';
+                    }
+
+                    // LÓGICA DO BOTÃO ADMIN
+                    if (data.adminUrl) {
+                        btnAdmin.href = data.adminUrl;
+                        btnAdmin.style.display = 'flex';
+                    } else {
+                        btnAdmin.style.display = 'none';
+                    }
+                    
+                    modal.classList.add('active');
+                    document.body.style.overflow = 'hidden';
+                }
+            });
+        });
+
+        const closeFunc = () => {
+            modal.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        };
+        closeModal.addEventListener('click', closeFunc);
+        modal.addEventListener('click', (e) => { if(e.target === modal) closeFunc(); });
+    </script>
+</body>
+</html>
