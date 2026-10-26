@@ -1,80 +1,142 @@
-# Pietro Tamanini
+# Pietro Ramos Tamanini
 
 ```console
 pietro@dev:~$ whoami
-Backend Developer · Python · PHP · Flask · REST APIs · MySQL · Docker · Linux
+Junior Full Stack Developer
+
+pietro@dev:~$ focus --areas
+Frontend · Backend · APIs · Relational Databases · Testing · Deployment
 ```
 
-I develop web systems, APIs, and automation solutions with a focus on business logic, databases, security, testing, and deployment.
+I build web applications from the user interface to server-side logic. My work combines **HTML, CSS, JavaScript, Python, PHP, relational databases, API integrations, and deployment workflows**. I care about readable code, clear separation of responsibilities, secure defaults, and software that solves real operational problems.
 
 [Portfolio](https://pietro.tamanini.dev.br/) · [LinkedIn](https://www.linkedin.com/in/pietrotamanini/) · [Email](mailto:pietro@tamanini.dev.br)
 
+## `principles/`
+
+**01** — Readability over cleverness.
+
+**02** — Keep the interface, business logic, and data responsibilities clear.
+
+**03** — Use tests and logs to make failures easier to understand.
+
+**04** — Treat deployment and maintenance as part of the product.
+
 ## `projects/`
 
-### [JusTraduz](https://github.com/TeamGHCP/JusTraduz)
-
-Legal platform developed as a team project for document analysis, case management, user communication, court case lookup, and payment integration.
-
-```text
-PHP · MySQL · JavaScript · Docker · APIs · Asaas
+```console
+pietro@dev:~/projects$ ls -la
 ```
 
-Worked on backend development, integrations, databases, security, infrastructure, and product evolution.
+### [JusTraduz](https://github.com/TeamGHCP/JusTraduz) · `team project`
 
-* authentication and role-based access control;
-* auditing, CSRF protection, rate limiting, and private file storage;
-* document processing and execution queues;
-* payments, billing, and administrative workflows;
-* Docker environment, testing, and operational documentation.
+A collaborative legal-tech platform for document analysis, case management, communication, public case lookup, and payment workflows. It brings together user-facing features and backend services for different user roles.
 
-> 1st place in the SENAI/SC Software Learning Project presentation.
+`PHP` `MySQL` `JavaScript` `HTML/CSS` `Docker` `APIs` `Asaas`
 
-### [Zokyo](https://github.com/PietroTamanini/Zokyo)
+**My contribution**
 
-Management system for technical support and repair businesses, featuring service orders, customers, inventory, finance, technical reports, analytics, and a customer portal.
+Backend development, integrations, relational data modeling, security, infrastructure, and product improvements as part of the team.
+
+**Areas of work**
+
+- Authentication, role-based permissions, and administrative workflows.
+- Document workflows and private file handling.
+- Payment integration and related application flows.
+- Docker-based development, testing, and operational documentation.
 
 ```text
-Python · Flask · SQLAlchemy · MariaDB · Docker · Pytest · Playwright
+User interface
+  └─> PHP application
+       ├─> MySQL database
+       ├─> payment integration
+       └─> document workflows
 ```
 
-* modular architecture using blueprints and a service layer;
-* relational database modeling and migrations with Alembic;
-* authentication, RBAC, 2FA, and auditing;
-* unit and end-to-end testing;
-* Gunicorn, Nginx, Docker Compose, and health checks.
+[1st place — SENAI/SC Software Learning Project presentation ↗](https://www.linkedin.com/posts/guilherme-arthur-silveira_enfim-3-semestre-finalizado-hoje-foi-o-ugcPost-7480422148482916352-v_en/)
 
-### [OAB/CNA Lookup API](https://github.com/PietroTamanini/API-consulta-OAB)
+### [Zokyo](https://github.com/PietroTamanini/Zokyo) · `individual project`
 
-Integration between a PHP interface and a Flask API for automated lookup of public records, with caching and MySQL persistence.
+A full-stack CRM/ERP for technical assistance and repair businesses. It brings service orders, customers, equipment, inventory, suppliers, finance, reports, dashboards, and customer workflows together in one web application.
+
+`Python` `Flask` `SQLAlchemy` `MariaDB` `HTML/CSS` `JavaScript` `Jinja2` `Docker`
+
+**Application architecture**
+
+- Flask blueprints for route organization and a service layer for business logic.
+- SQLAlchemy models, relational database design, and database migrations.
+- Server-rendered templates with JavaScript for interactive interface behavior.
+- Configuration by environment to support different deployment setups.
+
+**Testing and delivery**
+
+- Pytest and Playwright for automated checks and critical user flows.
+- Ruff for Python linting.
+- Gunicorn, Nginx, Docker Compose, and health checks for deployment and operation.
 
 ```text
-Python · Flask · PHP · Playwright · MySQL · REST API
+app/
+  ├─ routes/       # HTTP routes and page endpoints
+  ├─ services/     # business rules and application workflows
+  ├─ models/       # database models
+  ├─ templates/    # HTML templates
+  └─ static/       # CSS, JavaScript, and assets
+tests/
+migrations/
+```
+
+### [API Consulta OAB/CNA](https://github.com/PietroTamanini/API-consulta-OAB) · `individual project`
+
+A web interface and Flask API for automated lookup of public OAB/CNA data. The integration uses browser automation when needed and stores results in MySQL to support repeated lookups.
+
+`PHP` `Python` `Flask` `REST API` `Playwright` `MySQL`
+
+**Request flow**
+
+- Check available local data first.
+- Use the Flask API to coordinate a lookup when required.
+- Automate the browser flow, normalize results, and persist data.
+- Reuse stored results where possible to reduce repeated requests.
+
+```text
+PHP interface
+  └─> Flask API
+       ├─> local data / cache lookup
+       ├─> browser automation when needed
+       └─> MySQL persistence
 ```
 
 ## `stack.yml`
 
 ```yaml
+frontend:
+  languages:
+    - HTML
+    - CSS
+    - JavaScript
+  templating:
+    - Jinja2
+
 backend:
-  - Python
-  - PHP
-  - Flask
-  - REST APIs
-  - authentication
-  - RBAC
+  languages:
+    - Python
+    - PHP
+  frameworks_and_apis:
+    - Flask
+    - REST APIs
+  application_concepts:
+    - authentication and authorization
+    - role-based access control
+    - business logic and integrations
 
 data:
-  - MySQL
-  - MariaDB
-  - SQLAlchemy
-  - Alembic
-  - PDO
-
-infra:
-  - Linux
-  - Docker
-  - Docker Compose
-  - Nginx
-  - Gunicorn
+  databases:
+    - MySQL
+    - MariaDB
+  tools_and_practices:
+    - SQLAlchemy
+    - relational data modeling
+    - database migrations
 
 quality:
   - Pytest
@@ -83,23 +145,57 @@ quality:
   - GitHub Actions
 
 security:
-  - CSRF
+  - CSRF protection
+  - role-based permissions
   - rate limiting
-  - 2FA
-  - auditing
-  - secrets management
+  - audit trails
+  - secure file handling
+
+infrastructure:
+  - Linux
+  - Docker
+  - Docker Compose
+  - Nginx
+  - Gunicorn
 ```
 
-## `git log`
+## `workflow.txt`
 
 ```text
-7480422  1st place — Software Learning Project, SENAI/SC
-main     Systems Analysis and Development — SENAI/SC
-HEAD     Backend, architecture, testing, security, and Linux
+01  understand the requirement and model the solution
+02  separate interface, business logic, and data access
+03  validate inputs and handle failure cases
+04  test critical user and API flows
+05  document setup, configuration, and operation
+06  automate repeatable checks and deployment steps
 ```
+
+## `education/`
+
+**Technical Program in Systems Analysis and Development — SENAI/SC, Joinville**  
+`Mar 2025 – Dec 2026 · In progress`
+
+Studying programming, web development, databases, systems modeling, and software engineering.
+
+## `professional résumé/`
+
+My portfolio contains more details about my projects, technical background, and professional profile.
+
+```console
+pietro@dev:~$ ./resume.sh
+focus      Full Stack Development
+level      Junior
+portfolio  https://pietro.tamanini.dev.br/
+```
+
+## `contact.sh`
 
 ```console
 pietro@dev:~$ ./contact.sh
 email     pietro@tamanini.dev.br
 location  Joinville, Santa Catarina, Brazil
+portfolio https://pietro.tamanini.dev.br/
+linkedin  linkedin.com/in/pietrotamanini
 ```
+
+I'm looking for a junior opportunity where I can contribute to both frontend and backend work, learn from a team, and help build reliable, useful software.

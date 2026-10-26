@@ -1,8 +1,42 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
     <loc>https://pietro.tamanini.dev.br/</loc>
-    <changefreq>monthly</changefreq>
-    <priority>1.0</priority>
+    <lastmod>2026-10-26</lastmod>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://pietro.tamanini.dev.br/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://pietro.tamanini.dev.br/en.html" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://pietro.tamanini.dev.br/es.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://pietro.tamanini.dev.br/" />
+    <image:image>
+      <image:loc>https://pietro.tamanini.dev.br/assets/img/og-cover.png</image:loc>
+      <image:title>Desenvolvedor Full Stack Júnior | Pietro Tamanini</image:title>
+      <image:caption>Portfólio de desenvolvimento Full Stack, aplicações web, APIs e sistemas.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://pietro.tamanini.dev.br/en.html</loc>
+    <lastmod>2026-10-26</lastmod>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://pietro.tamanini.dev.br/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://pietro.tamanini.dev.br/en.html" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://pietro.tamanini.dev.br/es.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://pietro.tamanini.dev.br/" />
+    <image:image>
+      <image:loc>https://pietro.tamanini.dev.br/assets/img/og-cover-en.png</image:loc>
+      <image:title>Pietro Tamanini | Junior Full Stack Developer</image:title>
+      <image:caption>Full Stack development portfolio featuring web applications, APIs, databases and software systems.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://pietro.tamanini.dev.br/es.html</loc>
+    <lastmod>2026-10-26</lastmod>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://pietro.tamanini.dev.br/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://pietro.tamanini.dev.br/en.html" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://pietro.tamanini.dev.br/es.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://pietro.tamanini.dev.br/" />
+    <image:image>
+      <image:loc>https://pietro.tamanini.dev.br/assets/img/og-cover-es.png</image:loc>
+      <image:title>Pietro Tamanini | Desarrollador Full Stack Júnior</image:title>
+      <image:caption>Portafolio de desarrollo Full Stack con aplicaciones web, API, bases de datos y sistemas.</image:caption>
+    </image:image>
   </url>
 </urlset>
