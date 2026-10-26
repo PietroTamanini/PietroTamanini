@@ -177,7 +177,7 @@ infrastructure:
 
 Studying programming, web development, databases, systems modeling, and software engineering.
 
-## `professional resume/`
+## `professional résumé/`
 
 My portfolio contains more details about my projects, technical background, and professional profile.
 
