@@ -199,3 +199,15 @@ linkedin  linkedin.com/in/pietrotamanini
 ```
 
 I'm looking for a junior opportunity where I can contribute to both frontend and backend work, learn from a team, and help build reliable, useful software.
+
+
+## Certificados
+
+A seção de certificados está disponível em português (`certificados.html`), inglês (`certificates.html`) e espanhol (`certificados-es.html`). As páginas reutilizam o cabeçalho completo, menu responsivo, seletor de idioma e rodapé do portfólio. O seletor de idioma mantém o visitante na seção de certificados ao alternar entre português, inglês e espanhol. Os 11 PDFs ficam em `assets/certificados/` e são exibidos em um visualizador modal.
+
+
+## SEO, GEO e AIO (busca por IA)
+
+O site inclui metadados por idioma, URLs canônicas, `hreflang` recíproco, Open Graph, cartões sociais, dados estruturados JSON-LD para o perfil e projetos, `sitemap.xml`, `robots.txt` e `llms.txt`. As páginas de certificados possuem metadados próprios, lista estruturada e links HTML rastreáveis para os PDFs. O GitHub Actions executa `scripts/validate_site.py` antes de publicar, para detectar metadados ausentes, links locais quebrados e problemas no sitemap.
+
+Isso melhora a clareza técnica e a capacidade de descoberta, mas não garante indexação, rich results nem recomendações em respostas geradas por IA. Para acompanhar resultados, verifique o domínio em Google Search Console e Bing Webmaster Tools, envie `https://pietro.tamanini.dev.br/sitemap.xml` e monitore indexação, consultas, cliques e Core Web Vitals. Não adicione palavras-chave artificiais nem invente datas, emissores de certificados, emprego ou métricas.

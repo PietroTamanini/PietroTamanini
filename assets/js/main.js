@@ -928,15 +928,20 @@
     en: 'Pietro Tamanini | Junior Full Stack Developer',
     es: 'Pietro Tamanini | Desarrollador Full Stack Júnior'
   };
-  const descriptions = {
-    pt: 'Portfólio de Pietro Tamanini, desenvolvedor Full Stack júnior em Joinville, SC. Projetos web com HTML, CSS, JavaScript, Python, PHP, APIs REST, bancos de dados e Docker.',
-    en: 'Portfolio of Pietro Tamanini, a junior Full Stack Developer in Joinville, Brazil. Explore web projects built with JavaScript, Python, PHP, REST APIs, databases, testing, and Docker.',
-    es: 'Portafolio de Pietro Tamanini, desarrollador Full Stack júnior en Joinville, Brasil. Proyectos web con JavaScript, Python, PHP, API REST, bases de datos, pruebas y Docker.'
+  const certificatePageTitles = {
+    pt: 'Certificados de Cursos | Pietro Tamanini',
+    en: 'Course Certificates | Pietro Tamanini',
+    es: 'Certificados de Cursos | Pietro Tamanini'
   };
-  const keywordDescriptions = {
-    pt: 'Pietro Tamanini, desenvolvedor Full Stack júnior, desenvolvedor web, Joinville SC, HTML, CSS, JavaScript, Python, PHP, Flask, APIs REST, MySQL, MariaDB, Docker, GitHub',
-    en: 'Pietro Tamanini, junior full stack developer, web developer, Joinville Brazil, HTML, CSS, JavaScript, Python, PHP, Flask, REST APIs, MySQL, MariaDB, Docker, GitHub',
-    es: 'Pietro Tamanini, desarrollador Full Stack júnior, desarrollador web, Joinville Brasil, HTML, CSS, JavaScript, Python, PHP, Flask, API REST, MySQL, MariaDB, Docker, GitHub'
+  const certificateDescriptions = {
+    pt: 'Conheça 11 certificados de Pietro Tamanini em programação Python e Java, desenvolvimento web, bancos de dados, hardware e aplicações móveis.',
+    en: 'Explore 11 course certificates held by Pietro Tamanini in Python and Java programming, web development, databases, IT hardware, and mobile apps.',
+    es: 'Consulta 11 certificados de Pietro Tamanini sobre programación con Python y Java, desarrollo web, bases de datos, hardware y aplicaciones móviles.'
+  };
+  const descriptions = {
+    pt: 'Portfólio de Pietro Ramos Tamanini, desenvolvedor Full Stack júnior em Joinville, SC. Projetos com JavaScript, Python, PHP, APIs, bancos de dados e Docker.',
+    en: 'Portfolio of Pietro Tamanini, a junior Full Stack Developer in Joinville, Brazil. Projects using Python, PHP, JavaScript, APIs, databases, and Docker.',
+    es: 'Portafolio Full Stack de Pietro Tamanini en Joinville, Brasil, con proyectos en Python, PHP, JavaScript, API REST, bases de datos, Docker y pruebas.'
   };
   const localizedJobTitles = {
     pt: 'Desenvolvedor Full Stack Júnior',
@@ -1007,21 +1012,22 @@
         element.setAttribute(attribute, translated);
       });
     }
-    document.title = pageTitles[language];
+    const localizedTitle = isCertificatePage ? certificatePageTitles[language] : pageTitles[language];
+    const localizedDescription = isCertificatePage ? certificateDescriptions[language] : descriptions[language];
+    document.title = localizedTitle;
     const setMeta = (selector, content) => {
       const element = document.querySelector(selector);
       if (element) element.setAttribute('content', content);
     };
-    setMeta('meta[name="description"]', descriptions[language]);
-    setMeta('meta[name="keywords"]', keywordDescriptions[language]);
-    setMeta('meta[property="og:title"]', pageTitles[language]);
-    setMeta('meta[property="og:description"]', descriptions[language]);
+    setMeta('meta[name="description"]', localizedDescription);
+    setMeta('meta[property="og:title"]', localizedTitle);
+    setMeta('meta[property="og:description"]', localizedDescription);
     setMeta('meta[property="og:site_name"]', localizedSiteNames[language]);
     setMeta('meta[property="og:locale"]', language === 'pt' ? 'pt_BR' : language === 'en' ? 'en_US' : 'es_ES');
-    setMeta('meta[property="og:image:alt"]', `${localizedJobTitles[language]} | Pietro Tamanini`);
-    setMeta('meta[name="twitter:title"]', pageTitles[language]);
-    setMeta('meta[name="twitter:description"]', descriptions[language]);
-    setMeta('meta[name="twitter:image:alt"]', `${localizedJobTitles[language]} | Pietro Tamanini`);
+    setMeta('meta[property="og:image:alt"]', isCertificatePage ? `${language === 'en' ? 'Course certificates' : language === 'es' ? 'Certificados de cursos' : 'Certificados de cursos'} | Pietro Tamanini` : `${localizedJobTitles[language]} | Pietro Tamanini`);
+    setMeta('meta[name="twitter:title"]', localizedTitle);
+    setMeta('meta[name="twitter:description"]', localizedDescription);
+    setMeta('meta[name="twitter:image:alt"]', isCertificatePage ? `${language === 'en' ? 'Course certificates' : language === 'es' ? 'Certificados de cursos' : 'Certificados de cursos'} | Pietro Tamanini` : `${localizedJobTitles[language]} | Pietro Tamanini`);
 
     // Keep structured data aligned with the language selected by the visitor.
     const structuredData = document.getElementById('seo-structured-data');
@@ -1034,8 +1040,12 @@
             entity.description = descriptions[language];
             entity.inLanguage = language === 'pt' ? 'pt-BR' : language;
           } else if (entity['@type'] === 'ProfilePage') {
-            entity.name = pageTitles[language];
-            entity.description = descriptions[language];
+            entity.name = localizedTitle;
+            entity.description = localizedDescription;
+            entity.inLanguage = language === 'pt' ? 'pt-BR' : language;
+          } else if (entity['@type'] === 'CollectionPage') {
+            entity.name = localizedTitle;
+            entity.description = localizedDescription;
             entity.inLanguage = language === 'pt' ? 'pt-BR' : language;
           } else if (entity['@type'] === 'Person') {
             entity.jobTitle = localizedJobTitles[language];
@@ -1061,7 +1071,12 @@
   };
 
   const staticLocalePage = document.documentElement.dataset.staticLocale === 'true';
-  const languageRoutes = { pt: '/', en: '/en.html', es: '/es.html' };
+  // Use same-directory links so language switching also works when the site is
+  // hosted under a project subpath (for example, GitHub Pages without a CNAME).
+  const homeLanguageRoutes = { pt: 'index.html', en: 'en.html', es: 'es.html' };
+  const certificateLanguageRoutes = { pt: 'certificados.html', en: 'certificates.html', es: 'certificados-es.html' };
+  const isCertificatePage = /(?:^|\/)(?:certificados|certificates|certificados-es)\.html$/.test(window.location.pathname);
+  const languageRoutes = isCertificatePage ? certificateLanguageRoutes : homeLanguageRoutes;
 
   $$('[data-set-language]').forEach((option) => {
     option.addEventListener('click', () => {
@@ -1073,7 +1088,7 @@
           return;
         }
         try { localStorage.setItem('portfolio-language', targetLanguage); } catch (_) { /* storage may be disabled */ }
-        window.location.assign(new URL(languageRoutes[targetLanguage] || '/', window.location.origin).href);
+        window.location.assign(new URL(languageRoutes[targetLanguage] || 'index.html', window.location.href).href);
         return;
       }
       applyLanguage(targetLanguage);

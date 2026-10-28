@@ -2,41 +2,109 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
     <loc>https://pietro.tamanini.dev.br/</loc>
-    <lastmod>2026-10-26</lastmod>
+    <lastmod>2026-10-28</lastmod>
     <xhtml:link rel="alternate" hreflang="pt-BR" href="https://pietro.tamanini.dev.br/" />
     <xhtml:link rel="alternate" hreflang="en" href="https://pietro.tamanini.dev.br/en.html" />
     <xhtml:link rel="alternate" hreflang="es" href="https://pietro.tamanini.dev.br/es.html" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://pietro.tamanini.dev.br/" />
     <image:image>
-      <image:loc>https://pietro.tamanini.dev.br/assets/img/og-cover.png</image:loc>
-      <image:title>Desenvolvedor Full Stack Júnior | Pietro Tamanini</image:title>
-      <image:caption>Portfólio de desenvolvimento Full Stack, aplicações web, APIs e sistemas.</image:caption>
+      <image:loc>https://pietro.tamanini.dev.br/assets/img/pietro-tamanini.webp</image:loc>
+      <image:title>Pietro Tamanini — desenvolvedor Full Stack</image:title>
+      <image:caption>Portfólio de Pietro Ramos Tamanini, desenvolvedor Full Stack júnior em Joinville, SC. Projetos com JavaScript, Python, PHP, APIs, bancos de dados e Docker.</image:caption>
     </image:image>
   </url>
   <url>
     <loc>https://pietro.tamanini.dev.br/en.html</loc>
-    <lastmod>2026-10-26</lastmod>
+    <lastmod>2026-10-28</lastmod>
     <xhtml:link rel="alternate" hreflang="pt-BR" href="https://pietro.tamanini.dev.br/" />
     <xhtml:link rel="alternate" hreflang="en" href="https://pietro.tamanini.dev.br/en.html" />
     <xhtml:link rel="alternate" hreflang="es" href="https://pietro.tamanini.dev.br/es.html" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://pietro.tamanini.dev.br/" />
     <image:image>
-      <image:loc>https://pietro.tamanini.dev.br/assets/img/og-cover-en.png</image:loc>
-      <image:title>Pietro Tamanini | Junior Full Stack Developer</image:title>
-      <image:caption>Full Stack development portfolio featuring web applications, APIs, databases and software systems.</image:caption>
+      <image:loc>https://pietro.tamanini.dev.br/assets/img/pietro-tamanini.webp</image:loc>
+      <image:title>Pietro Tamanini — Full Stack Developer</image:title>
+      <image:caption>Portfolio of Pietro Tamanini, a junior Full Stack Developer in Joinville, Brazil. Projects using Python, PHP, JavaScript, APIs, databases, and Docker.</image:caption>
     </image:image>
   </url>
   <url>
     <loc>https://pietro.tamanini.dev.br/es.html</loc>
-    <lastmod>2026-10-26</lastmod>
+    <lastmod>2026-10-28</lastmod>
     <xhtml:link rel="alternate" hreflang="pt-BR" href="https://pietro.tamanini.dev.br/" />
     <xhtml:link rel="alternate" hreflang="en" href="https://pietro.tamanini.dev.br/en.html" />
     <xhtml:link rel="alternate" hreflang="es" href="https://pietro.tamanini.dev.br/es.html" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://pietro.tamanini.dev.br/" />
     <image:image>
-      <image:loc>https://pietro.tamanini.dev.br/assets/img/og-cover-es.png</image:loc>
-      <image:title>Pietro Tamanini | Desarrollador Full Stack Júnior</image:title>
-      <image:caption>Portafolio de desarrollo Full Stack con aplicaciones web, API, bases de datos y sistemas.</image:caption>
+      <image:loc>https://pietro.tamanini.dev.br/assets/img/pietro-tamanini.webp</image:loc>
+      <image:title>Pietro Tamanini — desarrollador Full Stack</image:title>
+      <image:caption>Portafolio Full Stack de Pietro Tamanini en Joinville, Brasil, con proyectos en Python, PHP, JavaScript, API REST, bases de datos, Docker y pruebas.</image:caption>
     </image:image>
+  </url>
+  <url>
+    <loc>https://pietro.tamanini.dev.br/certificados.html</loc>
+    <lastmod>2026-10-28</lastmod>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://pietro.tamanini.dev.br/certificados.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://pietro.tamanini.dev.br/certificates.html" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://pietro.tamanini.dev.br/certificados-es.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://pietro.tamanini.dev.br/certificados.html" />
+  </url>
+  <url>
+    <loc>https://pietro.tamanini.dev.br/certificates.html</loc>
+    <lastmod>2026-10-28</lastmod>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://pietro.tamanini.dev.br/certificados.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://pietro.tamanini.dev.br/certificates.html" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://pietro.tamanini.dev.br/certificados-es.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://pietro.tamanini.dev.br/certificados.html" />
+  </url>
+  <url>
+    <loc>https://pietro.tamanini.dev.br/certificados-es.html</loc>
+    <lastmod>2026-10-28</lastmod>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://pietro.tamanini.dev.br/certificados.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://pietro.tamanini.dev.br/certificates.html" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://pietro.tamanini.dev.br/certificados-es.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://pietro.tamanini.dev.br/certificados.html" />
+  </url>
+  <url>
+    <loc>https://pietro.tamanini.dev.br/assets/certificados/projetos-de-sistemas-de-ti.pdf</loc>
+    <lastmod>2026-10-28</lastmod>
+  </url>
+  <url>
+    <loc>https://pietro.tamanini.dev.br/assets/certificados/desenvolvendo-aplicacoes-mobile-com-android-studio.pdf</loc>
+    <lastmod>2026-10-28</lastmod>
+  </url>
+  <url>
+    <loc>https://pietro.tamanini.dev.br/assets/certificados/introducao-a-programacao-orientada-a-objetos-poo.pdf</loc>
+    <lastmod>2026-10-28</lastmod>
+  </url>
+  <url>
+    <loc>https://pietro.tamanini.dev.br/assets/certificados/fundamentos-de-ti-hardware-e-software.pdf</loc>
+    <lastmod>2026-10-28</lastmod>
+  </url>
+  <url>
+    <loc>https://pietro.tamanini.dev.br/assets/certificados/crie-um-site-simples-usando-html-css-e-javascript.pdf</loc>
+    <lastmod>2026-10-28</lastmod>
+  </url>
+  <url>
+    <loc>https://pietro.tamanini.dev.br/assets/certificados/criando-um-projeto-com-interface-grafica-utilizando-a-linguagem-python.pdf</loc>
+    <lastmod>2026-10-28</lastmod>
+  </url>
+  <url>
+    <loc>https://pietro.tamanini.dev.br/assets/certificados/linguagem-de-programacao-python-basico.pdf</loc>
+    <lastmod>2026-10-28</lastmod>
+  </url>
+  <url>
+    <loc>https://pietro.tamanini.dev.br/assets/certificados/desenvolvendo-um-projeto-completo-python-com-estrutura-de-dados.pdf</loc>
+    <lastmod>2026-10-28</lastmod>
+  </url>
+  <url>
+    <loc>https://pietro.tamanini.dev.br/assets/certificados/desenvolvimento-orientado-a-objetos-utilizando-a-linguagem-python.pdf</loc>
+    <lastmod>2026-10-28</lastmod>
+  </url>
+  <url>
+    <loc>https://pietro.tamanini.dev.br/assets/certificados/programacao-de-aplicativos-java.pdf</loc>
+    <lastmod>2026-10-28</lastmod>
+  </url>
+  <url>
+    <loc>https://pietro.tamanini.dev.br/assets/certificados/introducao-ao-banco-de-dados.pdf</loc>
+    <lastmod>2026-10-28</lastmod>
   </url>
 </urlset>

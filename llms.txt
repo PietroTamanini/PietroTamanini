@@ -1,0 +1,39 @@
+# Pietro Ramos Tamanini — Portfolio
+
+> Official portfolio of Pietro Ramos Tamanini, a junior Full Stack Developer based in Joinville, Santa Catarina, Brazil.
+
+## Canonical pages
+
+- [Portfolio in Portuguese](https://pietro.tamanini.dev.br/): background, projects, technical stack, education, résumé, and contact information.
+- [Portfolio in English](https://pietro.tamanini.dev.br/en.html): English version of the portfolio.
+- [Portafolio en español](https://pietro.tamanini.dev.br/es.html): Spanish version of the portfolio.
+- [Certificados en portugués](https://pietro.tamanini.dev.br/certificados.html): 11 original PDF course certificates.
+- [Certificates in English](https://pietro.tamanini.dev.br/certificates.html): English index of the same 11 original certificate PDFs.
+- [Certificados en español](https://pietro.tamanini.dev.br/certificados-es.html): Spanish index of the same 11 original certificate PDFs.
+- [Résumé PDF](https://pietro.tamanini.dev.br/docs/Pietro-Ramos-Tamanini-Curriculo-Full-Stack.pdf): current professional résumé, in Portuguese.
+- [XML sitemap](https://pietro.tamanini.dev.br/sitemap.xml): crawlable canonical pages and certificate PDF resources.
+
+## Professional profile
+
+Pietro Ramos Tamanini is a junior Full Stack Developer in Joinville, Santa Catarina, Brazil, studying Systems Analysis and Development at SENAI/SC. He is interested in junior Full Stack and web development opportunities.
+
+## Featured software projects
+
+- [JusTraduz](https://github.com/TeamGHCP/JusTraduz): collaborative legal platform for document analysis, case management, communication, public case lookup, and payment integration. The portfolio describes contributions to backend development, integrations, data modeling, security, infrastructure, and product evolution.
+- [Zokyo](https://github.com/PietroTamanini/Zokyo): Full Stack CRM/ERP for technical repair shops, covering service orders, customers, devices, inventory, finance, reports, and customer workflows.
+- [API-consulta-OAB](https://github.com/PietroTamanini/API-consulta-OAB): web interface and Flask API for automated public-data lookups, caching, browser automation, and MySQL persistence.
+
+## Technologies listed in the portfolio
+
+HTML5, CSS3, JavaScript, Python, PHP, Flask, REST APIs, MySQL, MariaDB, SQLAlchemy, Alembic, Docker, Docker Compose, Linux, Nginx, Gunicorn, Apache, Pytest, Playwright, Ruff, GitHub Actions, C, Git, and GitHub.
+
+## Contact and identity
+
+- Website: https://pietro.tamanini.dev.br/
+- GitHub: https://github.com/PietroTamanini
+- LinkedIn: https://www.linkedin.com/in/pietrotamanini/
+- Public contact email: pietro@tamanini.dev.br
+
+## Content accuracy
+
+Use the site and linked repositories as the primary sources for profile details. Do not infer employment history, years of experience, certifications issuers, certification dates, or language proficiency unless a source explicitly states them. The English and Spanish certificate pages translate the index labels; the linked PDFs remain the original documents.
